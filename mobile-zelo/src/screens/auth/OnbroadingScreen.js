@@ -4,11 +4,11 @@ import Swiper from "react-native-swiper";
 import { globalStyles } from "../../styles/globalStyle";
 import { APPINFOS, COLORS } from "../../constants";
 import ButtonComponent from "../../components/ButtonComponent";
-
+import { useNavigation } from "@react-navigation/native";
 
 const OnbroadingScreen = () => {
   const [index, setIndex] = useState(0);
-
+  const navigation = useNavigation();
   return (
     <View style={[globalStyles.container]}>
       <Swiper
@@ -16,12 +16,13 @@ const OnbroadingScreen = () => {
         onIndexChanged={(num) => setIndex(num)}
         index={index}
         activeDotColor={COLORS.primary}
+        style={{ height: APPINFOS.sizes.HEIGHT }}
       >
         <Image
           source={require("../../assets/images/onboarding-1.jpg")}
           style={{
             width: APPINFOS.sizes.WIDTH,
-            height: APPINFOS.sizes.HEIGHT,
+            height: APPINFOS.sizes.HEIGHT * 0.9,
             resizeMode: "contain",
           }}
         />
@@ -29,7 +30,7 @@ const OnbroadingScreen = () => {
           source={require("../../assets/images/onboarding-2.jpg")}
           style={{
             width: APPINFOS.sizes.WIDTH,
-            height: APPINFOS.sizes.HEIGHT,
+            height: APPINFOS.sizes.HEIGHT * 0.9,
             resizeMode: "contain",
           }}
         />
@@ -37,7 +38,7 @@ const OnbroadingScreen = () => {
           source={require("../../assets/images/onboarding-3.jpg")}
           style={{
             width: APPINFOS.sizes.WIDTH,
-            height: APPINFOS.sizes.HEIGHT,
+            height: APPINFOS.sizes.HEIGHT * 0.9,
             resizeMode: "contain",
           }}
         />
@@ -45,7 +46,7 @@ const OnbroadingScreen = () => {
           source={require("../../assets/images/onboarding-4.jpg")}
           style={{
             width: APPINFOS.sizes.WIDTH,
-            height: APPINFOS.sizes.HEIGHT,
+            height: APPINFOS.sizes.HEIGHT * 0.9,
             resizeMode: "contain",
           }}
         />
@@ -53,7 +54,7 @@ const OnbroadingScreen = () => {
           source={require("../../assets/images/onboarding-5.jpg")}
           style={{
             width: APPINFOS.sizes.WIDTH,
-            height: APPINFOS.sizes.HEIGHT,
+            height: APPINFOS.sizes.HEIGHT * 0.8,
             resizeMode: "contain",
           }}
         />
@@ -65,8 +66,8 @@ const OnbroadingScreen = () => {
           marginBottom: 20,
         }}
       >
-        <ButtonComponent title="Đăng nhập" onPress={() => {}} />
-        <ButtonComponent title="Taọ tài khoản mới" onPress={() => {}} />
+        <ButtonComponent title="Đăng nhập" onPress={() => navigation.navigate("LoginScreen")} />
+        <ButtonComponent title="Taọ tài khoản mới" onPress={() => navigation.navigate("SignUpScreen")} />
       </View>
     </View>
   );

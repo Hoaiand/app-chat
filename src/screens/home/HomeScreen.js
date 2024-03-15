@@ -9,8 +9,8 @@ const HomeScreen = () => {
   const navigation = useNavigation();
 
   const conversations = [
-    { id: '1', name: 'Chat 1', lastMessage: 'Hello', image: 'https://lab2cn.s3.ap-southeast-1.amazonaws.com/011710127222531.jpg', time: '10:00 AM' },
-    { id: '2', name: 'Chat 2', lastMessage: 'Hi', image: 'https://example.com/image2.png', time: '11:00 AM' },
+    { id: '1', name: 'Chat 1', lastMessage: 'Hello', image: 'https://lab2cn.s3.ap-southeast-1.amazonaws.com/011710127222531.jpg', time: '10:00 AM', status: 'Đang hoạt động' },
+    { id: '2', name: 'Chat 2', lastMessage: 'Hi', image: 'https://example.com/image2.png', time: '11:00 AM', status: 'Đang hoạt động' },
     // Add more conversations here
   ];
 
@@ -39,7 +39,7 @@ const HomeScreen = () => {
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => handlePress(item)}>
-            <View style={styles.conversation}>
+            <View style={[styles.conversation, { borderBottomColor: COLORS.gray5 }]}>
               <Image source={{ uri: item.image }} style={styles.image} />
               <View style={styles.textContainer}>
                 <View style={styles.messageContainer}>
@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
+
   },
   messageContainer: {
     flexDirection: 'column',

@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { LoginScreen, SignUpScreen } from '../screens';
 import OnboardingScreen from '../screens/auth/OnbroadingScreen';
 import tabNavigator from './TabNavigator';
-import MessageScreen from '../screens/home/messageScreen';
+import MessageScreen from '../screens/home/MessageScreen';
 
 const AuthNavigator = () => {
     const Stack = createStackNavigator();
